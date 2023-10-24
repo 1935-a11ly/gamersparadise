@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+    <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+    <script src="https://kit.fontawesome.com/6f75aa0fc4.js" crossorigin="anonymous"></script>
+    <script src = "../static/get.js"></script>
+</head>
+    <body style = "background:linear-gradient( 89.7deg, rgba(223,0,0,0.15) 2.7%, rgba(214,91,0,0.15) 15.1%, rgba(233,245,0,0.15) 29.5%, rgba(23,255,17,0.15) 45.8%, rgba(29,255,255,0.15) 61.5%, rgba(5,17,255,0.15) 76.4%, rgba(202,0,253,0.15) 92.4% )">
+        <br>
+        <div class = "mui-container mui--text-center" style= "margin-bottom:20px,margin-top:20px">
+        <i class="fas fa-dice-d20 fa-10x"></i>
+        </div>
+        <hr>
+
+        <div>
+        <form action = "{{ url_for('data') }}" method = "POST">
+            <br>
+            <br>
+            <div class = "mui-container mui--text-center">
+                <label style = "font-size:20px">Name</label>
+                <input type = "text" placeholder = "Contributor"name = "user" style = "width:13%;margin-right:47px" class = "mui-btn mui-btn--danger" required/>
+                <label for="selCat" style = "font-size:20px" value="Category">Platform</label>
+                <select name="platform" id="selPlat" class = "mui-btn mui-btn--danger" style = "margin-right:47px">
+                    <option value="playstation">Playstation</option>
+                    <option value="xbox">Xbox</option>
+                    <option value="pc">PC</option>
+                </select>
+                <label for="selCat" style = "font-size:20px" value="Category">Contribution</label>
+                <select name="contType" id="selType" class = "mui-btn mui-btn--danger" style = "margin-right:0px">
+                    <option value="ask">Ask</option>
+                    <option value="suggestion">Suggestion</option>
+                </select>
+                <br><br>
+                <br>
+                <div class = "mui-container mui--text-center">
+                <label style = "font-size:20px"> Date </label>
+                <input name = "date" type = "date" class = "mui-btn mui-btn--danger" required/>
+                </div>
+            </div>
+            <br>
+            <div class = "mui-container mui--text-center">
+            <h1> Enter Game Title </h1>
+            </div>
+            <div class="mui-container mui--text-center" style = "width:60%;margin-bottom:0px;">
+                <div class="mui-textfield">
+                    <input type = "text" name = "game_name"style= "width:100%" required/>
+                </div>
+            </div>
+            </div>
+            <div id = "response"></div>
+            <br>
+            <div class= "mui-container mui--text-center" style= "margin-bottom:20px;margin-top:12px">
+            <input type = "submit" value = "submit" class = "mui-btn mui-btn--primary"/>
+        </form>
+        <select id="selPlatt" class = "mui-btn mui-btn--danger" style = "margin-right:0px">
+                    <option value="playstation">Playstation</option>
+                    <option value="xbox">Xbox</option>
+                    <option value="pc">PC</option>
+        </select>
+        <button class = "mui-btn mui-btn--primary" onclick = "quick_suggestion()"> Quick Suggestion </button>
+        
+        <a  class = "mui-btn mui-btn--primary" href= "/rawdata">Game Suggestions Collection</a>
+        </div>
+        <br>
+        <br>
+        <div class= "mui-container mui--text-center" >
+        <i class="fab fa-playstation fa-3x" style = "color:#003791;margin-right:15px"></i><i class="fab fa-xbox fa-3x" style = "color:#107C10;margin-right:15px"></i><i class="fab fa-steam fa-3x"></i>
+        </div>
+        <br>
+        <br>
+        <div class = "mui-container mui--text-center">
+        <a class = "mui-btn mui-btn--raised" href = "/"> Back to Community Home </a>
+        </div>
+        
+    </body>
+</html>

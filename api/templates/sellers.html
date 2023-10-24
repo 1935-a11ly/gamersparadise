@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+    <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+    <script src="https://kit.fontawesome.com/6f75aa0fc4.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"> </script>
+</head>
+   <body style = "background:linear-gradient( 89.7deg, rgba(223,0,0,0.15) 2.7%, rgba(214,91,0,0.15) 15.1%, rgba(233,245,0,0.15) 29.5%, rgba(23,255,17,0.15) 45.8%, rgba(29,255,255,0.15) 61.5%, rgba(5,17,255,0.15) 76.4%, rgba(202,0,253,0.15) 92.4% )">
+    <br><br>
+    <div class = "mui-container mui--text-center" style= "margin-bottom:20px,margin-top:20px">
+    <i class="fab fa-bitcoin fa-10x"></i>
+    </div>
+    <br><br>
+      <table  class = "mui-table mui-table--bordered" id = "gameData">
+         <thead>
+            <th>Contributor Name</th>
+            <th>Platform</th>
+            <th>Contribution Type</th>
+            <th>Game Title</th>
+            <th>Date of Entry</th>            
+         </thead>
+         
+         {% for row in rows %}
+            <tr>
+               <td>{{row["cont"]}}</td>
+               <td>{{row["platform"]}}</td>
+               <td>{{row['cont_type']}}</td>
+               <td>{{row['gamename']}}</td>
+               <td>{{row['date']}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+   <div class = "mui-container mui--text-center"> 
+   <a href = "/gameinventory" class = "mui-btn mui-btn--danger">Back to Community Inventory</a>
+   <a href = "/" class = "mui-btn mui-btn--primary">Back to Community Home</a> 
+   </div> 
+   <br>
+   <script>
+        $(document).ready(function(){
+            $("#gameData").DataTable();
+        });
+    </script>
+    <style>
+    #gameData_length{text-align:center;margin-bottom:10px;margin-top:20px;}
+    #gameData_filter{text-align:center;margin-bottom:10px;margin-top:20px;}
+    </style>
+   </body>
+</html>
