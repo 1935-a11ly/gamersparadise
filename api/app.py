@@ -19,9 +19,12 @@ except sqlite3.OperationalError:
     conn = sqlite3.connect('./database.db')
     print("Created a new database.")
 
-conn.execute('CREATE TABLE Playstation (cont TEXT,platform TEXT, cont_type TEXT, gamename TEXT, date TEXT)')
-conn.execute('CREATE TABLE Xbox (cont TEXT,platform TEXT, cont_type TEXT, gamename TEXT, date TEXT)')
-conn.execute('CREATE TABLE Pc (cont TEXT,platform TEXT, cont_type TEXT, gamename TEXT, date TEXT)')
+try:
+    conn.execute('CREATE TABLE Playstation (cont TEXT,platform TEXT, cont_type TEXT, gamename TEXT, date TEXT)')
+    conn.execute('CREATE TABLE Xbox (cont TEXT,platform TEXT, cont_type TEXT, gamename TEXT, date TEXT)')
+    conn.execute('CREATE TABLE Pc (cont TEXT,platform TEXT, cont_type TEXT, gamename TEXT, date TEXT)')
+except sqlite3.OperationalError:
+    print("Tables already exist.")
 conn.close()
 
 @app.route('/')

@@ -1,6 +1,6 @@
 /* jshint esversion: 8 */
 'use strict';
-const BASE_URL =  "https://mycallmusa01.pythonanywhere.com/api/games/"
+const BASE_URL =  "https://gamesapi-eta.vercel.app/api/games"
 
 async function quick_suggestion() {
     var plat = document.getElementById("selPlatt").value;
