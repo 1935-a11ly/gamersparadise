@@ -19,9 +19,9 @@ except sqlite3.OperationalError:
     conn = sqlite3.connect('./database.db')
     print("Created a new database.")
 
-# conn.execute('CREATE TABLE Playstation (cont TEXT,platform TEXT, cont_type TEXT, gamename TEXT, date TEXT)')
-# conn.execute('CREATE TABLE Xbox (cont TEXT,platform TEXT, cont_type TEXT, gamename TEXT, date TEXT)')
-# conn.execute('CREATE TABLE Pc (cont TEXT,platform TEXT, cont_type TEXT, gamename TEXT, date TEXT)')
+conn.execute('CREATE TABLE Playstation (cont TEXT,platform TEXT, cont_type TEXT, gamename TEXT, date TEXT)')
+conn.execute('CREATE TABLE Xbox (cont TEXT,platform TEXT, cont_type TEXT, gamename TEXT, date TEXT)')
+conn.execute('CREATE TABLE Pc (cont TEXT,platform TEXT, cont_type TEXT, gamename TEXT, date TEXT)')
 conn.close()
 
 @app.route('/')
@@ -34,7 +34,7 @@ def new_game():
 
 @app.route('/rawdata')
 def raw_data():
-   all_known_games= requests.get("https://mycallmusa01.pythonanywhere.com/api/games")
+   all_known_games= requests.get("https://gamesapi-eta.vercel.app/api/games")
    y = all_known_games.json()
    #x = {"topic":"Fire", "thunder":"blunder"}
    #return (all_known_games)
